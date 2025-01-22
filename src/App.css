@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+html {
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+}
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html body {
+  background-color: #232946;
+  color: #fffffe;
+}
+html a {
+  text-decoration: none;
+  color: inherit;
+}
+html ul, html ol {
+  list-style: none;
+}
+html img {
+  display: block;
+  max-width: 100%;
+}
+html figure {
+  width: fit-content;
+  height: fit-content;
+}
+html button, html label, html input {
+  display: block;
+}
+
+.App {
+  width: 100%;
+}
+.App header {
+  width: 100%;
+}
+.App header .header_inner {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.App header .header_inner h1 {
+  font-size: clamp(2rem, 2.5vw, 3rem);
+}
+.App header .header_inner .tabMenu {
+  display: flex;
+  gap: 0.5rem;
+}
+.App header .header_inner .tabMenu li {
+  width: 80px;
+}
+.App header .header_inner .tabMenu li a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+.App header .header_inner .tabMenu li a p {
+  font-size: clamp(0.75rem, 1vw, 1rem);
+}
+.App header .header_inner .tabMenu li.on {
+  color: #eebbc3;
+}
+.App .addContact {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.App .addContact form {
+  width: 100%;
+  height: 680px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #eebbc3;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 0 #eebbc3;
+}
+.App .addContact form > div {
+  width: 100%;
+}
+.App .addContact form > div label {
+  color: #b8c1ec;
+  font-size: clamp(1rem, 1vw, 1.2rem);
+}
+.App .addContact form > div input {
+  border: 1px solid rgba(255, 255, 254, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  outline: none;
+  background-color: transparent;
+  color: #fffffe;
+  font-family: "Noto Sans KR";
+}
+.App .addContact form > div.img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.App .addContact form > div.img label {
+  width: 160px;
+  height: 160px;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.App .addContact form > div.img input[type=file] {
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+.App .addContact form > div.name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.App .addContact form > div.phone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.App .addContact form > div.phone .btnBox {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.App .addContact form > div.phone .btnBox button {
+  border: 1px solid #b8c1ec;
+  border-radius: 0.5rem;
+  color: #b8c1ec;
+  background-color: transparent;
+  padding: 0.5rem;
+  font-family: "Noto Sans KR";
+  cursor: pointer;
+  transition: 0.1s;
+}
+.App .addContact form > div.phone .btnBox button:active {
+  border: 1px solid #eebbc3;
+  color: #eebbc3;
+}
+.App .addContact form > button {
+  margin-top: 1rem;
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid #eebbc3;
+  border-radius: 0.5rem;
+  color: #eebbc3;
+  padding: 0.25rem 1rem;
+  font-family: "Noto Sans KR";
+  font-size: clamp(1rem, 1vw, 1.3rem);
+  cursor: pointer;
+}
+.App .contactList {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.App .contactList .search {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.App .contactList .search form {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid #eebbc3;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0.2rem 0.2rem 0 #eebbc3;
+}
+.App .contactList .search form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #eebbc3;
+  font-family: "Noto Sans KR";
+}
+.App .contactList .search form input::placeholder {
+  color: #eebbc3;
+}
+.App .contactList .search form button {
+  border: none;
+  background-color: transparent;
+  color: #eebbc3;
+  font-family: "Noto Sans KR";
+}
+.App .contactList > p {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  font-weight: 400;
+  color: #eebbc3;
+}
+.App .contactList .itemBox {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eebbc3;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0 #eebbc3;
+  overflow-y: scroll;
+}
+.App .contactList .itemBox::-webkit-scrollbar {
+  width: 0;
+}
+.App .contactList .itemBox .listItem {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+.App .contactList .itemBox .listItem {
+  border-bottom: 1px solid rgba(238, 187, 195, 0.15);
+}
+.App .contactList .itemBox .listItem figure {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.App .contactList .itemBox .listItem .text {
+  height: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #b8c1ec;
+}
+.App .contactList .itemBox .listItem .text p {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
+.App .contactList .itemBox .listItem button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: 1px solid #eebbc3;
+  border-radius: 100%;
+  color: #eebbc3;
+  font-family: "Noto Sans KR";
+  position: absolute;
+  right: 2rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=App.css.map */
