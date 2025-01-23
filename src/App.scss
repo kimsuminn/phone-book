@@ -163,11 +163,11 @@ $primary-color: #eebbc3;
           }
 
           .btnBox button {
-            border: 1px solid #fffffe;
+            border: 1px solid $primary-color;
             border-radius: 0.5rem;
             padding: 0.25rem 0.5rem;
             background-color: transparent;
-            color: #fffffe;
+            color: $primary-color;
             font-family: 'Noto Sans KR';
             cursor: pointer;
           }

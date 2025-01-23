@@ -140,11 +140,11 @@ html button, html label, html input {
   border: 0;
 }
 .App .addContact form > div.img .btnBox button {
-  border: 1px solid #fffffe;
+  border: 1px solid #eebbc3;
   border-radius: 0.5rem;
   padding: 0.25rem 0.5rem;
   background-color: transparent;
-  color: #fffffe;
+  color: #eebbc3;
   font-family: "Noto Sans KR";
   cursor: pointer;
 }

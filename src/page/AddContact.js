@@ -1,4 +1,4 @@
-import { faDeleteLeft, faMinus, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faDeleteLeft, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
