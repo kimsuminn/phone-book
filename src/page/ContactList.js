@@ -2,10 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Search from "../components/Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { removeItem } from "../store/contactSlice";
 
 function ContactList() {
 
-  const {contactList, keyword} = useSelector(state => state);
+  const {contactList, keyword} = useSelector(state => state.contact);
   const filterList = contactList.filter(item => item.name.includes(keyword));
 
   return (
@@ -27,8 +28,9 @@ function ListItem({item}) {
 
   const dispatch = useDispatch();
 
-  const removeItem = (id) => {
-    dispatch({type: 'REMOVE_ITEM', payload: id});
+  const remove = (id) => {
+    // dispatch({type: 'REMOVE_ITEM', payload: id});
+    dispatch(removeItem(id))
   }
 
   return (
@@ -38,7 +40,7 @@ function ListItem({item}) {
         <h3>{item.name}</h3>
         <p>{item.phone}</p>
       </div>
-      <button type="button" onClick={() => removeItem(item.id)}>
+      <button type="button" onClick={() => remove(item.id)}>
         <FontAwesomeIcon icon={faMinus}/>
       </button>
     </div>

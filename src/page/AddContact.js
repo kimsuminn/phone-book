@@ -2,6 +2,7 @@ import { faDeleteLeft, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { addItem } from "../store/contactSlice";
 
 function AddContact() {
   return (
@@ -46,7 +47,8 @@ function InputForm() {
   const submit = (e) => {
     e.preventDefault();
     if (inputValue.name.trim() && inputValue.phone.trim()) {
-      dispatch({type: 'ADD_CONTACT', payload: inputValue});
+      // dispatch({type: 'ADD_CONTACT', payload: inputValue});
+      dispatch(addItem(inputValue));
       setInputValue({name: '', phone: '', img: 'unknown_person.jpg'});
     } else {
       alert('연락처를 제대로 입력하지 않으셨습니다!');
