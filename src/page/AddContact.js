@@ -1,6 +1,6 @@
-import { faDeleteLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faDeleteLeft, faMinus, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 function AddContact() {
@@ -15,9 +15,15 @@ function InputForm() {
 
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState({name: '', phone: '', img: 'unknown_person.jpg'});
+  const fileInputRef = useRef(null);
 
   const onChangeImageUpload = (e) => {
     const { files } = e.target;
+
+    if (!files || files.length === 0) {
+      return ;
+    }
+
     const uploadFile = files[0];
     const reader = new FileReader();
 
@@ -28,45 +34,12 @@ function InputForm() {
   }
 
   const clickKeypad = (btn) => {
-    switch(btn) {
-      case '0':
-        setInputValue({...inputValue, phone: inputValue.phone + '0'});
-        break;
-      case '1':
-        setInputValue({...inputValue, phone: inputValue.phone + '1'});
-        break;
-      case '2':
-        setInputValue({...inputValue, phone: inputValue.phone + '2'});
-        break;
-      case '3':
-        setInputValue({...inputValue, phone: inputValue.phone + '3'});
-        break;
-      case '4':
-        setInputValue({...inputValue, phone: inputValue.phone + '4'});
-        break;
-      case '5':
-        setInputValue({...inputValue, phone: inputValue.phone + '5'});
-        break;
-      case '6':
-        setInputValue({...inputValue, phone: inputValue.phone + '6'});
-        break;
-      case '7':
-        setInputValue({...inputValue, phone: inputValue.phone + '7'});
-        break;
-      case '8':
-        setInputValue({...inputValue, phone: inputValue.phone + '8'});
-        break;
-      case '9':
-        setInputValue({...inputValue, phone: inputValue.phone + '9'});
-        break;
-      case 'reset':
-        setInputValue({...inputValue, phone: ''});
-        break;
-      case 'back':
-        setInputValue({...inputValue, phone: inputValue.phone.slice(0, -1)});
-        break;
-      default:
-        return;
+    if (btn === 'reset') {
+      setInputValue({...inputValue, phone: ''});
+    } else if (btn === 'back') {
+      setInputValue({...inputValue, phone: inputValue.phone.slice(0, -1)});
+    } else {
+      setInputValue({...inputValue, phone: inputValue.phone + btn});
     }
   }
 
@@ -81,18 +54,40 @@ function InputForm() {
     }
   }
 
+  const triggerFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const removeImg = () => {
+    setInputValue({...inputValue, img: 'unknown_person.jpg'});
+  }
+
   return (
     <form onSubmit={submit}>
       <div className="img">
         <label htmlFor="img">
           <img src={inputValue.img} alt="profile" />
+          {
+            inputValue.img === 'unknown_person.jpg' ? 
+              <p><FontAwesomeIcon icon={faPlus}/></p> : 
+              <></>
+          }
         </label>
         <input
           type="file"
           accept="image/*"
           id="img"
+          ref={fileInputRef}
           onChange={onChangeImageUpload}
         />
+        <div className="btnBox">
+          { inputValue.img === 'unknown_person.jpg' ?
+              <button id="img" type="button" onClick={triggerFileInput}>추가</button> :
+              <button type="button" onClick={removeImg}>제거</button>
+          }
+        </div>
       </div>
       <div className="name">
         <label htmlFor="name">Name</label>

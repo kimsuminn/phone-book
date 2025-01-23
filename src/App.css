@@ -51,6 +51,7 @@ html button, html label, html input {
 }
 .App header .header_inner h1 {
   font-size: clamp(2rem, 2.5vw, 3rem);
+  color: #eebbc3;
 }
 .App header .header_inner .tabMenu {
   display: flex;
@@ -80,12 +81,11 @@ html button, html label, html input {
 }
 .App .addContact form {
   width: 100%;
-  height: 680px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid #eebbc3;
+  border: 2px solid #eebbc3;
   border-radius: 1rem;
   box-shadow: 0.2rem 0.2rem 0 #eebbc3;
 }
@@ -93,7 +93,6 @@ html button, html label, html input {
   width: 100%;
 }
 .App .addContact form > div label {
-  color: #b8c1ec;
   font-size: clamp(1rem, 1vw, 1.2rem);
 }
 .App .addContact form > div input {
@@ -109,14 +108,29 @@ html button, html label, html input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .App .addContact form > div.img label {
   width: 160px;
   height: 160px;
+  border: 2px solid #eebbc3;
   border-radius: 100%;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
+}
+.App .addContact form > div.img label p {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  align-content: center;
+  font-size: 2rem;
 }
 .App .addContact form > div.img input[type=file] {
   width: 0;
@@ -124,6 +138,15 @@ html button, html label, html input {
   padding: 0;
   overflow: hidden;
   border: 0;
+}
+.App .addContact form > div.img .btnBox button {
+  border: 1px solid #fffffe;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  color: #fffffe;
+  font-family: "Noto Sans KR";
+  cursor: pointer;
 }
 .App .addContact form > div.name {
   width: 100%;
@@ -143,9 +166,9 @@ html button, html label, html input {
   gap: 0.5rem;
 }
 .App .addContact form > div.phone .btnBox button {
-  border: 1px solid #b8c1ec;
+  border: 1px solid #fffffe;
   border-radius: 0.5rem;
-  color: #b8c1ec;
+  color: #fffffe;
   background-color: transparent;
   padding: 0.5rem;
   font-family: "Noto Sans KR";
@@ -163,7 +186,7 @@ html button, html label, html input {
   border: 1px solid #eebbc3;
   border-radius: 0.5rem;
   color: #eebbc3;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 2rem;
   font-family: "Noto Sans KR";
   font-size: clamp(1rem, 1vw, 1.3rem);
   cursor: pointer;
@@ -184,7 +207,7 @@ html button, html label, html input {
   width: 100%;
   display: flex;
   gap: 0.5rem;
-  border: 1px solid #eebbc3;
+  border: 2px solid #eebbc3;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   box-shadow: 0.2rem 0.2rem 0 #eebbc3;
@@ -214,10 +237,10 @@ html button, html label, html input {
 }
 .App .contactList .itemBox {
   width: 100%;
-  height: 550px;
+  height: 600px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #eebbc3;
+  border: 2px solid #eebbc3;
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem 0 #eebbc3;
   overflow-y: scroll;
@@ -248,7 +271,6 @@ html button, html label, html input {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: #b8c1ec;
 }
 .App .contactList .itemBox .listItem .text p {
   font-size: clamp(0.9rem, 1vw, 1rem);
@@ -257,7 +279,7 @@ html button, html label, html input {
   width: 24px;
   height: 24px;
   background-color: transparent;
-  border: 1px solid #eebbc3;
+  border: 2px solid #eebbc3;
   border-radius: 100%;
   color: #eebbc3;
   font-family: "Noto Sans KR";
