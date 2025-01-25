@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/contactSlice";
+import { useNavigate } from "react-router-dom";
 
 function AddContact() {
   return (
@@ -15,6 +16,7 @@ function AddContact() {
 function InputForm() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({name: '', phone: '', img: 'unknown_person.jpg'});
   const fileInputRef = useRef(null);
 
@@ -50,6 +52,7 @@ function InputForm() {
       // dispatch({type: 'ADD_CONTACT', payload: inputValue});
       dispatch(addItem(inputValue));
       setInputValue({name: '', phone: '', img: 'unknown_person.jpg'});
+      navigate('/list');
     } else {
       alert('연락처를 제대로 입력하지 않으셨습니다!');
       setInputValue({name: '', phone: '', img: 'unknown_person.jpg'});
@@ -64,6 +67,28 @@ function InputForm() {
 
   const removeImg = () => {
     setInputValue({...inputValue, img: 'unknown_person.jpg'});
+  }
+
+  const keyDownEvent = (e) => {
+    const keyMap = {
+      '0': '0',
+      '1': '1',
+      '2': '2', 
+      '3': '3',
+      '4': '4',
+      '5': '5',
+      '6': '6',
+      '7': '7',
+      '8': '8', 
+      '9': '9',
+      Backspace: 'back',
+      Delete: 'reset'
+    };
+
+    if (keyMap[e.key]) {
+      // e.preventDefault();
+      clickKeypad(keyMap[e.key]);
+    }
   }
 
   return (
@@ -106,6 +131,7 @@ function InputForm() {
           className="numberBox" 
           id="phone"
           value={inputValue.phone}
+          onKeyDown={keyDownEvent}
           readOnly
         />
         <div className="btnBox">
